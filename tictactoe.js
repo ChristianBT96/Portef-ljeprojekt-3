@@ -15,12 +15,10 @@ let playerTwoScore = 0;
 
 // // // // Keep Score // // // //
 
-const bothPlayerScores = document.querySelectorAll('.score');
-
 const playerOneScoreBoard = document.querySelector('.player-one-score');
 const playerTwoScoreBoard = document.querySelector('.player-two-score');
 
-// // // // // // // //
+// // // // DONE // // // //
 
 
 // // // // Win Conditions // // // //
@@ -53,7 +51,7 @@ const isThereAWinner = () => {
 
 // // // // // // // //
 
-// // // // Reset Function // // // //
+// // // // Reset Functions // // // //
 
 const resetGameState = () => {
     playerOneScore = 0;
@@ -84,8 +82,8 @@ const resetGameBoard = () => {
 // // // // BOT (VERY BAD) // // // //
 
 const botFunction = () => {
-    setTimeout(() => {
     if (gameModeOnePlayer && !playerOneTurn) {
+        setTimeout(() => {
         let botMove = Math.floor(Math.random() * 9);
         if (gameBoardArray[botMove] === 0) {
             gameBoardArray[botMove] = -1;
@@ -95,8 +93,8 @@ const botFunction = () => {
         } else {
             botFunction();
         }
+        }, 1000);
     }
-    }, 1500);
 };
 
 // // // // DONE // // // //
@@ -112,9 +110,9 @@ let playerOneTurn = true;
 inputs.forEach((input, index) => {
   input.addEventListener('click', () => {
 
-      if (gameBoardArray[index] !== 0) {
+        if (gameBoardArray[index] !== 0) {
           return;
-      }
+        }
 
     if (playerOneTurn) {
         input.innerHTML = "X";
